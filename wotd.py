@@ -13,6 +13,8 @@ INPUT_FILE = Path(
 SECTION_SEPARATOR = "---"
 
 if __name__ == "__main__":
+    # TODO add arg for file path
+
     with INPUT_FILE.open() as file:
         # Skip empty lines and remove newlines
         words = list(word for word in (line.strip() for line in file) if word)
@@ -23,7 +25,6 @@ if __name__ == "__main__":
         print()
         print(word)
         print()
-        
 
         with DictionaryApiClient() as client:
             parser = client.fetch_parser(word)
